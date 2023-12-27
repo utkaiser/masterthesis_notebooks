@@ -9,7 +9,6 @@ from wave_component_function import WaveSol_from_EnergyComponent_tensor
 
 def get_model(
     param_dict,
-    model_res,
     down_sampling_component="Interpolation",
     up_sampling_component="UNet3",
     model_path="results/saved_model_test.pt",

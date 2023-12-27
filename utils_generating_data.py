@@ -3,10 +3,8 @@ import scipy.ndimage
 import torch
 from skimage.transform import resize
 
-from utils_use_numerical_solver import (init_pulse_gaussian,
-                                        pseudo_spectral_tensor)
-from wave_component_function import (WaveEnergyComponentField_tensor,
-                                     WaveSol_from_EnergyComponent_tensor)
+from utils_use_numerical_solver import init_pulse_gaussian, pseudo_spectral_tensor
+from wave_component_function import WaveEnergyComponentField_tensor, WaveSol_from_EnergyComponent_tensor
 
 
 def generate_velocity_profile_crop(v_images, m, output_path, num_times):

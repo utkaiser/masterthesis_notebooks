@@ -6,10 +6,10 @@ import torch.nn.functional as F
 from torch import nn, save
 
 from utils_use_numerical_solver import velocity_verlet_tensor
-from wave_component_function import (WaveEnergyComponentField_tensor,
-                                     WaveSol_from_EnergyComponent_tensor)
+from wave_component_function import WaveEnergyComponentField_tensor,WaveSol_from_EnergyComponent_tensor
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 
 def save_model(model, model_name, dir_path="results/"):
     """
@@ -39,7 +39,7 @@ def get_params():
 
     Returns
     -------
-    (dictionary) get parameters used for training
+    (dictionary) get numerical and training parameters
     """
 
     d = {
