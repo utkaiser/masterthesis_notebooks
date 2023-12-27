@@ -5,7 +5,6 @@ import torch
 
 def get_velocity_model(data_path, visualize=True):
     """
-
     Parameters
     ----------
     data_path : (string) path to velocity profile crops
@@ -122,7 +121,7 @@ def velocity_verlet_tensor(
                 )
             )
 
-            # # absorbing boundary update (Engquist-Majda ABC second order)
+            # absorbing boundary update (Engquist-Majda ABC second order)
             Ny, Nx = Ny - 1, Nx - 1
             u2[:, -1, 1 : Nx + 1] = a * (
                 -u2[:, Ny, 1 : Nx + 1]
@@ -349,7 +348,6 @@ def init_pulse_gaussian(width, res_padded, center_x, center_y):
 
 def WaveEnergyField_tensor(u, ut, c, dx):
     """
-
     Parameters
     ----------
     u : (pytorch tensor) physical wave component, displacement of wave
