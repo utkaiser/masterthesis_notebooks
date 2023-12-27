@@ -127,14 +127,13 @@ class Model_end_to_end(nn.Module):
     down sampling + coarse solver + up sampling
     """
 
-    def __init__(self, param_dict, downsampling_type, upsampling_type, model_res):
+    def __init__(self, param_dict, downsampling_type, upsampling_type):
         """
         Parameters
         ----------
         param_dict : (dict) contains parameters to set up model
         downsampling_type : (string) defines down sampling component
         upsampling_type : (string) defines up sampling component
-        model_res : (int) resolution model can handle
         """
 
         super().__init__()
