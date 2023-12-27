@@ -310,7 +310,7 @@ class Numerical_solver(torch.nn.Module):
 class UNet(nn.Module):
     """
     JNet class
-    adapted from https://discuss.pytorch.org/t/unet-implementation/426
+    adaptation of https://discuss.pytorch.org/t/unet-implementation/426;
     forked from https://github.com/jvanvugt/pytorch-unet
     """
 
@@ -491,52 +491,3 @@ class UNetUpBlock(nn.Module):
 
         out = out + bridge
         return out
-
-
-class Numerical_upsampling(torch.nn.Module):
-    """
-    class to up sample solution numerically using bilinear interpolation
-    """
-
-    def __init__(self, in_channels=4, scale_factor=2):
-        """
-        Parameters
-        ----------
-        in_channels : (int) channel size of input
-        scale_factor : (int) scale factor by which input is up sampled (usually 2 or 4)
-        """
-
-        super(Numerical_upsampling, self).__init__()
-        self.in_channel = in_channels
-        self.scale_factor = scale_factor
-
-    def forward(self, x):
-        """
-        Parameters
-        ----------
-        x : (pytorch tensor) input to convolutional block
-
-        Returns
-        -------
-        up samples solution using bilinear interpolation
-        """
-        b, c, w, h = x.shape
-        upsample_shape = w * self.scale_factor
-
-        outputs = torch.zeros([b, c, upsample_shape, upsample_shape])
-        outputs[:, 0, :, :] = F.upsample(
-            x[:, 0, :, :].unsqueeze(dim=0),
-            size=(upsample_shape, upsample_shape),
-            mode="bilinear",
-        )
-        outputs[:, 1, :, :] = F.upsample(
-            x[:, 1, :, :].unsqueeze(dim=0),
-            size=(upsample_shape, upsample_shape),
-            mode="bilinear",
-        )
-        outputs[:, 2, :, :] = F.upsample(
-            x[:, 2, :, :].unsqueeze(dim=0),
-            size=(upsample_shape, upsample_shape),
-            mode="bilinear",
-        )
-        return outputs
