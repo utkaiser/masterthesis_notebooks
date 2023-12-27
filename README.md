@@ -1,4 +1,4 @@
-# Wave Propagation aided by Deep Learning (Code)
+# Fast, Accurate, and Scalable Numerical Wave Propagation: Enhancement by Deep Learning (Code)
 
 This repository contains notebooks that explain the Python code of my master's thesis about wave propagation algorithms
 that are combined with machine learning components to reduce the computation time while being
